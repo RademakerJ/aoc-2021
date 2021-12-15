@@ -14,61 +14,63 @@
 
         private static int SolveProblemA(IReadOnlyList<(string, int)> commands)
         {
-            var submarineHarry = new Submarine(new Point2D(0, 0), 0);
+            var submarine = new Submarine(new Point2D(0, 0), 0);
 
             foreach (var (direction, steps) in commands)
             {
-                (int x, int d) = GetMovement(direction, steps);
-                submarineHarry.Position.X += x;
-                submarineHarry.Position.D += d;
+                MoveWithoutAim(submarine, direction, steps);
             }
 
-            return submarineHarry.Position.X * submarineHarry.Position.D;
+            return submarine.Position.X * submarine.Position.D;
         }
 
         private static int SolveProblemB(IReadOnlyList<(string, int)> commands)
         {
-            var submarineHarry = new Submarine(new Point2D(0, 0), 0);
+            var submarine = new Submarine(new Point2D(0, 0), 0);
 
             foreach (var (direction, steps) in commands)
             {
-                (int x, int d, int aim) = GetMovementWithAim(submarineHarry, direction, steps);
-                submarineHarry.Aim += aim;
-                submarineHarry.Position.X += x;
-                submarineHarry.Position.D += d;
+                MoveWithAim(submarine, direction, steps);
             }
 
-            return submarineHarry.Position.X * submarineHarry.Position.D;
+            return submarine.Position.X * submarine.Position.D;
         }
 
-        private static (int x, int d) GetMovement(string direction, int steps)
+        private static void MoveWithoutAim(Submarine submarine, string direction, int steps)
         {
             if (direction == "forward")
             {
-                return (steps, 0);
+                submarine.Position.X += steps;
             }
 
             if (direction == "up")
             {
-                return (0, -steps);
+                submarine.Position.D -= steps;
             }
 
-            return (0, steps);
+            if (direction == "down")
+            {
+                submarine.Position.D += steps;
+            }
         }
 
-        private static (int x, int d, int aim) GetMovementWithAim(Submarine submarine, string direction, int steps)
+        private static void MoveWithAim(Submarine submarine, string direction, int steps)
         {
             if (direction == "forward")
             {
-                return (steps, submarine.Aim * steps, 0);
+                submarine.Position.X += steps;
+                submarine.Position.D += submarine.Aim * steps;
             }
 
             if (direction == "up")
             {
-                return (0, 0, -steps);
+                submarine.Aim -= steps;
             }
 
-            return (0, 0, steps);
+            if (direction == "down")
+            {
+                submarine.Aim += steps;
+            }
         }
 
         private record Submarine
