@@ -2,9 +2,9 @@
 {
     public partial class Program
     {
-        private static partial IReadOnlyList<IReadOnlyList<int>> ReadInput()
+        private static IReadOnlyList<IReadOnlyList<int>> ReadInput()
         {
-            var filePath = Path.Combine(Path.GetFullPath(@"..\..\..\"), "Resources", "Input.txt");
+            var filePath = Path.Combine("Resources", "Input.txt");
             var lines = File.ReadAllLines(filePath);
 
             return GetMatrix(lines);

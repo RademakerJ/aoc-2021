@@ -2,8 +2,6 @@
 {
     public partial class Program
     {
-        private static partial IReadOnlyList<(string, int)> ReadInput();
-
         public static void Main(string[] _)
         {
             var commands = ReadInput();

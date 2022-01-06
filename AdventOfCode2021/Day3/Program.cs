@@ -2,8 +2,6 @@
 {
     public partial class Program
     {
-        private static partial IReadOnlyList<IReadOnlyList<int>> ReadInput();
-
         public static void Main(string[] _)
         {
             var bitsMatrix = ReadInput();

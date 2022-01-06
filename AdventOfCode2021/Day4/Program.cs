@@ -2,8 +2,6 @@
 {
     public partial class Program
     {
-        private static partial (IReadOnlyList<int>, List<List<List<int>>>) ReadInput();
-
         public static void Main(string[] _)
         {
             var (bingoNumbers, bingoCards) = ReadInput();

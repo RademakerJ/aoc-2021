@@ -1,4 +1,4 @@
-﻿namespace Day1
+﻿namespace Day5
 {
     public partial class Program
     {

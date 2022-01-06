@@ -2,10 +2,10 @@
 {
     public partial class Program
     {
-        private static partial IReadOnlyList<(string, int)> ReadInput()
+        private static IReadOnlyList<(string, int)> ReadInput()
         {
             var result = new List<(string, int)>();
-            var filePath = Path.Combine(Path.GetFullPath(@"..\..\..\"), "Resources", "Input.txt");
+            var filePath = Path.Combine("Resources", "Input.txt");
             var lines = File.ReadAllLines(filePath);
 
             foreach (var line in lines)

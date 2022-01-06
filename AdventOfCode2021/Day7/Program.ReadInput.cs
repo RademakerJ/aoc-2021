@@ -2,9 +2,9 @@
 {
     public partial class Program
     {
-        private static partial IReadOnlyList<int> ReadInput()
+        private static IReadOnlyList<int> ReadInput()
         {
-            var filePath = Path.Combine(Path.GetFullPath(@"..\..\..\"), "Resources", "Input.txt");
+            var filePath = Path.Combine("Resources", "Input.txt");
             var text = File.ReadAllText(filePath);
             var lines = text.Split(',');
 

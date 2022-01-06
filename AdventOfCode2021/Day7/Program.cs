@@ -2,8 +2,6 @@
 {
     public partial class Program
     {
-        private static partial IReadOnlyList<int> ReadInput();
-
         public static void Main(string[] _)
         {
             var horizontalPositions = ReadInput().OrderBy(position => position).ToList();

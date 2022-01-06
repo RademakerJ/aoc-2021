@@ -2,9 +2,9 @@
 {
     public partial class Program
     {
-        private static partial (IReadOnlyList<int>, List<List<List<int>>>) ReadInput()
+        private static (IReadOnlyList<int>, List<List<List<int>>>) ReadInput()
         {
-            var filePath = Path.Combine(Path.GetFullPath(@"..\..\..\"), "Resources", "Input.txt");
+            var filePath = Path.Combine("Resources", "Input.txt");
 
             using StreamReader reader = new(filePath);
             var bingoNumbers = reader.ReadLine()?.Split(',').Select(str => int.Parse(str)).ToList();
